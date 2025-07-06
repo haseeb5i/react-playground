@@ -1,5 +1,5 @@
 import { Routes, Route, useParams } from "react-router-dom";
-import { AuthCard, UserButton, SettingsCard } from "@daveyplate/better-auth-ui";
+import { AuthCard, UserButton } from "@daveyplate/better-auth-ui";
 import { authClient } from "./lib/auth-client";
 import { useEffect } from "react";
 
@@ -17,6 +17,17 @@ function Dashboard() {
   return (
     <header className="p-5 flex justify-end">
       <UserButton />
+      <button
+        onClick={() => {
+          authClient.signIn.social({
+            provider: "discord",
+            scopes: ['email', 'identify', 'guilds.members.read'],
+            callbackURL: window.origin,
+          });
+        }}
+      >
+        disco
+      </button>
     </header>
   );
 }
