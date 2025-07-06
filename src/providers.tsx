@@ -9,6 +9,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
     <AuthUIProvider
       authClient={authClient}
       navigate={navigate}
+      //@ts-expect-error bad type
       Link={NavLink}
       baseURL={window.origin}
       social={{
